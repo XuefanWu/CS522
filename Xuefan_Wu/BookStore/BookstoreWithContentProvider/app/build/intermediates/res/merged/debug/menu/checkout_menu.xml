@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/checkout_order"
+        android:showAsAction="ifRoom"
+        android:title="Order"/>
+    <item
+        android:id="@+id/checkout_cancel"
+        android:showAsAction="ifRoom"
+        android:title="Cancel"/>
+
+</menu>
