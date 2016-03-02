@@ -29,7 +29,6 @@ public class Message implements Parcelable {
     public Message(Cursor cursor){
         this.id = MessageContract.getId(cursor);
         this.messageText = MessageContract.getMessage(cursor);
-        this.sender = MessageContract.getSender(cursor);
 
     }
 
@@ -58,7 +57,6 @@ public class Message implements Parcelable {
     public void writeToProvider(ContentValues values,Message message) {
         MessageContract.putMessage(values,message.messageText);
         MessageContract.putId(values, message.id);
-        MessageContract.putSender(values,message.sender);
     }
     @Override
     public String toString(){

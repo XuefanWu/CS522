@@ -9,10 +9,9 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import edu.stevens.cs522.bookstore.R;
-import edu.stevens.cs522.bookstore.databases.CartDbAdapter;
 
 public class CheckoutActivity extends Activity {
-	CartDbAdapter db = new CartDbAdapter(this);
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

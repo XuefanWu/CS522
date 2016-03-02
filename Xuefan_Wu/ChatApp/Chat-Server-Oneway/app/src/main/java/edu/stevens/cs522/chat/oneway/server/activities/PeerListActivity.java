@@ -8,41 +8,51 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-
-import java.sql.SQLException;
 
 import edu.stevens.cs522.chat.oneway.server.R;
+import edu.stevens.cs522.chat.oneway.server.adapters.PeerAdapter;
 import edu.stevens.cs522.chat.oneway.server.contract.PeerContract;
-import edu.stevens.cs522.chat.oneway.server.database.PeerDbAdapter;
 import edu.stevens.cs522.chat.oneway.server.entities.Peer;
+import edu.stevens.cs522.chat.oneway.server.managers.IEntityCreator;
+import edu.stevens.cs522.chat.oneway.server.managers.IQueryListener;
+import edu.stevens.cs522.chat.oneway.server.managers.PeerManager;
+import edu.stevens.cs522.chat.oneway.server.managers.TypedCursor;
 
 public class PeerListActivity extends ListActivity {
 
     static final private int DETAIL_REQUEST = 1;
     private ListView listViewItems;
-    private PeerDbAdapter db;
-    private SimpleCursorAdapter mAdapter;
-    private Cursor mCursor;
+    private PeerAdapter mAdapter;
+    public static final String PEER_DETAIL_ID_KEY = "peer_detail_id";
+    private static final int PEER_LOADER_ID = 1;
+    PeerManager peerManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_peer_list);
 
-        listViewItems = getListView();
-        db = new PeerDbAdapter(this);
-        try {
-            db.open();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        peerManager = new PeerManager(this, new IEntityCreator<Peer>() {
+            @Override
+            public Peer create(Cursor cursor) {
+                return new Peer(cursor);
+            }
+        },PEER_LOADER_ID);
+        peerManager.executeQuery(
+                PeerContract.CONTENT_URI, null, null, null,
+                new IQueryListener<Peer>() {
+                    @Override
+                    public void handleResult(TypedCursor<Peer> results) {
+                        mAdapter.swapCursor(results.getCursor());
+                    }
+                    @Override
+                    public void closeResult() {
+                        mAdapter.swapCursor(null);
+                    }
+                });
 
-        mCursor = db.fetchAllPeers();
-        startManagingCursor(mCursor);
-        String[] columns = new String[] { PeerContract.NAME };
-        int[] to = new int[] { R.id.name };
-        mAdapter = new SimpleCursorAdapter(this, R.layout.peer_name, mCursor, columns, to);
+        listViewItems = getListView();
+        mAdapter = new PeerAdapter(this, android.R.layout.simple_list_item_2,null);
         listViewItems.setAdapter(mAdapter);
 
     }
@@ -51,11 +61,9 @@ public class PeerListActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        Cursor cursor = (Cursor)mAdapter.getItem(position);
-        Intent detailIntent = new Intent(this,PeerDetailActivity.class);
-        Peer p = new Peer(cursor);
-        detailIntent.putExtra(ChatServer.EXTRA_MESSAGE,p);
-        startActivityForResult(detailIntent,DETAIL_REQUEST);
+        Intent intent = new Intent(getApplicationContext(), PeerDetailActivity.class);
+        intent.putExtra(PEER_DETAIL_ID_KEY, (int) id);
+        startActivity(intent);
     }
 
     @Override
@@ -75,4 +83,5 @@ public class PeerListActivity extends ListActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

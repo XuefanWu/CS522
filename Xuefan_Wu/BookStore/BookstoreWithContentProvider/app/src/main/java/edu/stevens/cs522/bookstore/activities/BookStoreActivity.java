@@ -19,12 +19,10 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
 import edu.stevens.cs522.bookstore.R;
 import edu.stevens.cs522.bookstore.contracts.BookContract;
@@ -72,7 +70,9 @@ public class BookStoreActivity extends Activity
 
 
 
+		View empty = findViewById(R.id.empty);
 		final ListView listView = (ListView)findViewById(R.id.cart_view);
+		listView.setEmptyView(empty);
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -124,13 +124,9 @@ public class BookStoreActivity extends Activity
 					case R.id.item_delete:
 						nr = 0;
 						mAdapter.clearSelection();
-						//db.delete(row_Id);
-						//getContentResolver().delete(BookContract.CONTENT_URI(String.valueOf(row_Id)), null, null);
 						for(int i = 0; i<row_ids.size();i++){
 							getContentResolver().delete(BookContract.CONTENT_URI(String.valueOf(row_ids.get(i))), null, null);
 						}
-						//mAdapter.getCursor().requery();
-						//mode.finish();
 				}
 				return false;
 			}
@@ -154,23 +150,7 @@ public class BookStoreActivity extends Activity
 		});
 
 
-//		try {
-//			//db.open();
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		Cursor cursor = db.fetchAllBooks();
-//		startManagingCursor(cursor);
-//
-//
-//
-		String[] columns = new String[] { BookContract.TITLE,
-				BookContract.AUTHORS };
-		int[] to = new int[] { android.R.id.text1, android.R.id.text2 };
-
 		mAdapter = new BookAdapter(this, android.R.layout.simple_list_item_2,null);
-		//mAdapter = new SelectionAdapter(this, android.R.layout.simple_list_item_2, null, columns, to);
 		listView.setAdapter(mAdapter);
 		LoaderManager lm = getLoaderManager();
 		lm.initLoader(BOOK_LOADER_ID, null, this);
@@ -220,7 +200,8 @@ public class BookStoreActivity extends Activity
 
 		switch (id){
 			case BOOK_LOADER_ID:
-				String[] projections = {BookContract.COLUMN_ID, BookContract.TITLE, BookContract.AUTHORS };
+				String[] projections = {BookContract.COLUMN_ID, BookContract.TITLE,
+						BookContract.AUTHORS };
 				return new CursorLoader(this,
 						BookProvider.CONTENT_URI,
 						projections,null,null,null);
@@ -234,11 +215,13 @@ public class BookStoreActivity extends Activity
 
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+
 		this.mAdapter.swapCursor(data);
 	}
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
+
 		this.mAdapter.swapCursor(null);
 	}
 
@@ -337,44 +320,6 @@ public class BookStoreActivity extends Activity
 
 	}
 
-
-
-	private class SelectionAdapter extends SimpleCursorAdapter {
-
-		private HashMap<Integer, Boolean> mSelection = new HashMap<Integer, Boolean>();
-		public SelectionAdapter(Context context, int layout, Cursor c, String[] from, int[] to) {
-			super(context, layout, c, from, to);
-		}
-		public void setNewSelection(int position, boolean value) {
-			mSelection.put(position, value);
-			notifyDataSetChanged();
-		}
-		public boolean isPositionChecked(int position) {
-			Boolean result = mSelection.get(position);
-			return result == null ? false : result;
-		}
-		public Set<Integer> getCurrentCheckedPosition() {
-			return mSelection.keySet();
-		}
-		public void removeSelection(int position) {
-			mSelection.remove(position);
-			notifyDataSetChanged();
-		}
-		public void clearSelection() {
-			mSelection = new HashMap<Integer, Boolean>();
-			notifyDataSetChanged();
-		}
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			View v = super.getView(position, convertView, parent);//let the adapter handle setting up the row views
-			v.setBackgroundColor(getResources().getColor(android.R.color.background_dark)); //default color
-
-			if (mSelection.get(position) != null) {
-				v.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));// this is a selected position so make it red
-			}
-			return v;
-		}
-	}
 
 
 	

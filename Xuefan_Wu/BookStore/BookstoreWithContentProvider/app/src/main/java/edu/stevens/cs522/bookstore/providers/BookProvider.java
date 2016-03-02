@@ -79,7 +79,8 @@ public class BookProvider extends ContentProvider{
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         //qb.setTables(BOOK_TABLE);
-        qb.setTables(BOOK_TABLE+" LEFT OUTER JOIN AuthorTable ON (BookTable._id = AuthorTable.book_fk)");
+        qb.setTables(BOOK_TABLE+" LEFT OUTER JOIN AuthorTable ON " +
+                "(BookTable._id = AuthorTable.book_fk)");
         switch (uriMatcher.match(uri)){
             case BOOK:
                 //qb.setProjectionMap(BOOK_PROJECTION_MAP);
@@ -92,13 +93,9 @@ public class BookProvider extends ContentProvider{
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }
-//        if (sortOrder == null || sortOrder == ""){
-//            /**
-//             * By default sort on student names
-//             */
-//            sortOrder = String.valueOf(BOOK_ID);
-//        }
-        Cursor c = qb.query(db, projection,  selection, selectionArgs, " BookTable._id, BookTable.title, BookTable.price, BookTable.isbn", null, sortOrder);
+        Cursor c = qb.query(db, projection,  selection, selectionArgs,
+                " BookTable._id, BookTable.title, BookTable.price, BookTable.isbn",
+                null, sortOrder);
         c.setNotificationUri(getContext().getContentResolver(), uri);
         return c;
     }

@@ -2,6 +2,7 @@ package edu.stevens.cs522.chat.oneway.server.contract;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.net.Uri;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -15,6 +16,34 @@ public class PeerContract {
     public static final String NAME = "name";
     public static final String ADDRESS = "address";
     public static final String PORT = "port";
+    public static final String AUTHORITY = "edu.stevens.cs522.chat.oneway.server";
+    public static final String PATH ="PeerTable";
+    public static final Uri CONTENT_URI = CONTENT_URI(AUTHORITY,PATH);
+    public static final String CONTENT_PATH = CONTENT_PATH(CONTENT_URI);
+    public static final String CONTENT_PATH_ITEM = CONTENT_PATH(CONTENT_URI("#"));
+
+
+    public static Uri CONTENT_URI(String authority,String path){
+        return new Uri.Builder().scheme("content")
+                .authority(authority)
+                .path(path)
+                .build();
+    }
+
+
+    public static Uri withExtendedPath(Uri uri, String... path){
+        Uri.Builder builder = uri.buildUpon();
+        for(String p:path)
+            builder.appendPath(p);
+        return builder.build();
+    }
+    //override
+    public static Uri CONTENT_URI(String id){
+        return withExtendedPath(CONTENT_URI, id);
+    }
+    public static String CONTENT_PATH(Uri uri){
+        return uri.getPath().substring(1);
+    }
 
 
     public static long getId(Cursor cursor) {
@@ -26,7 +55,7 @@ public class PeerContract {
     }
     public static String getName(Cursor cursor){
         String s = null;
-        if(cursor != null && cursor.moveToFirst()){
+        if(cursor != null ){
             s= cursor.getString(cursor.getColumnIndexOrThrow(NAME));
         }
         return s;

@@ -35,6 +35,11 @@
             android:name="edu.stevens.cs522.chat.oneway.server.activities.PeerDetailActivity"
             android:label="@string/title_activity_peer_detail" >
         </activity>
+
+        <provider
+            android:name="edu.stevens.cs522.chat.oneway.server.providers.PeerProvider"
+            android:authorities="edu.stevens.cs522.chat.oneway.server"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -35,21 +35,16 @@ public class BookDetailActivity extends Activity
         setContentView(R.layout.book_detail);
         Intent intent = getIntent();
         Column_id=intent.getIntExtra(BookStoreActivity.BOOK_DETAIL_ID_KEY, 0);
-        //Book book = intent.getParcelableExtra(BookStoreActivity.BOOK_DETAIL_KEY);
         final ListView listView = (ListView)findViewById(R.id.detail_view);
         final ListView listViewAuthor = (ListView)findViewById(R.id.detail_author_view);
         String[] columns = new String[] { BookContract.TITLE,
                 BookContract.PRICE,BookContract.ISBN };
         int[] to = new int[] { R.id.detail_title, R.id.detail_price,R.id.detail_isbn};
 
-        //mAdapter = new BookAdapter(this, android.R.layout.simple_list_item_2,null);
         mAdapter = new SimpleCursorAdapter(this, R.layout.book_detail_list, null, columns, to);
 
         listView.setAdapter(mAdapter);
 
-
-        //lm.initLoader(AUTHORS_LOADER_ID,null,this);
-        //author[0]="gdsgfdsfdfdsfds";
         AuthorAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, android.R.id.text1,author_list);
         listViewAuthor.setAdapter(AuthorAdapter);
 
@@ -57,25 +52,6 @@ public class BookDetailActivity extends Activity
         lm.initLoader(BOOK_LOADER_ID,null,this);
 
     }
-
-//    private void renderTextView(Book book){
-//        TextView textView;
-//        textView = (TextView) findViewById(R.id.book_title);
-//        textView.setText(book.title);
-//        textView = (TextView) findViewById(R.id.book_author);
-//        String authorString = "";
-//        for(int i = 0; i<book.authors.length;i++){
-//            authorString+=book.authors[i].toString();
-//            if(i!=book.authors.length-1){
-//                authorString+=" | ";
-//            }
-//        }
-//        textView.setText(authorString);
-//        textView = (TextView) findViewById(R.id.book_isbn);
-//        textView.setText(book.isbn);
-//        textView = (TextView) findViewById(R.id.book_price);
-//        textView.setText(book.price);
-//    }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {

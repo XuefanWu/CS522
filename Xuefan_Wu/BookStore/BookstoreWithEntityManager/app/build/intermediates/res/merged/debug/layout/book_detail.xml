@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ListView
+        android:id="@+id/detail_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <ListView
+        android:id="@+id/detail_author_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/book_title"/>
+    <TextView android:id="@+id/book_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/book_author"/>
+    <TextView android:id="@+id/book_author"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/book_isbn"/>
+    <TextView android:id="@+id/book_isbn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="@string/book_price"/>
+    <TextView android:id="@+id/book_price"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"/>
+
+</LinearLayout>

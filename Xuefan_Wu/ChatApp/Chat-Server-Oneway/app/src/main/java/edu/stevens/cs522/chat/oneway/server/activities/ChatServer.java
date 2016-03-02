@@ -22,18 +22,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.sql.SQLException;
 
 import edu.stevens.cs522.chat.oneway.server.R;
+import edu.stevens.cs522.chat.oneway.server.adapters.PeerMessageAdapter;
 import edu.stevens.cs522.chat.oneway.server.contract.MessageContract;
 import edu.stevens.cs522.chat.oneway.server.database.PeerDbAdapter;
 import edu.stevens.cs522.chat.oneway.server.entities.Message;
 import edu.stevens.cs522.chat.oneway.server.entities.Peer;
+import edu.stevens.cs522.chat.oneway.server.managers.IEntityCreator;
+import edu.stevens.cs522.chat.oneway.server.managers.IQueryListener;
+import edu.stevens.cs522.chat.oneway.server.managers.MessageManager;
+import edu.stevens.cs522.chat.oneway.server.managers.PeerManager;
+import edu.stevens.cs522.chat.oneway.server.managers.TypedCursor;
 
 public class ChatServer extends Activity implements View.OnClickListener {
 
@@ -52,17 +56,49 @@ public class ChatServer extends Activity implements View.OnClickListener {
     private boolean socketOK = true;
     static final private int SENDER_REQUEST = 1;
 
+    private static final int PEER_LOADER_ID = 1;
+    private static final int MESSAGE_LOADER_ID = 2;
+
     ListView listViewItems;
     PeerDbAdapter db;
-    SimpleCursorAdapter mAdapter;
+    PeerMessageAdapter mAdapter;
     Cursor mCursor;
     Button next;
+    PeerManager peerManager;
+    MessageManager messageManager;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        peerManager = new PeerManager(this, new IEntityCreator() {
+            @Override
+            public  Peer create(Cursor cursor) {
+                return new Peer(cursor);
+            }
+        },PEER_LOADER_ID);
+
+
+        messageManager = new MessageManager(this, new IEntityCreator() {
+            @Override
+            public  Message create(Cursor cursor) {
+                return new Message(cursor);
+            }
+        },MESSAGE_LOADER_ID);
+        messageManager.executeQuery(
+                MessageContract.CONTENT_URI, null, null, null,
+                new IQueryListener<Message>() {
+                    @Override
+                    public void handleResult(TypedCursor<Message> results) {
+                        mAdapter.swapCursor(results.getCursor());
+                    }
+                    @Override
+                    public void closeResult() {
+                        mAdapter.swapCursor(null);
+                    }
+
+                });
 
         /**
          * Let's be clear, this is a HACK to allow you to do network communication on the main thread.
@@ -83,20 +119,20 @@ public class ChatServer extends Activity implements View.OnClickListener {
         listViewItems = (ListView) findViewById(R.id.msgList);
 
 
-        try {
-            db = new PeerDbAdapter(this);
-            db.open();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            db = new PeerDbAdapter(this);
+//            db.open();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        mCursor = db.fetchAllMessages();
+//        startManagingCursor(mCursor);
+//
+//        String[] columns = new String[]{MessageContract.TXT};
+//        int[] to = new int[]{R.id.row_message};
 
-        mCursor = db.fetchAllMessages();
-        startManagingCursor(mCursor);
-
-        String[] columns = new String[]{MessageContract.TXT};
-        int[] to = new int[]{R.id.row_message};
-
-        mAdapter = new SimpleCursorAdapter(this, R.layout.message, mCursor, columns, to);
+        mAdapter = new PeerMessageAdapter(this, android.R.layout.simple_list_item_2,null);
         listViewItems.setAdapter(mAdapter);
 
     }
@@ -125,11 +161,12 @@ public class ChatServer extends Activity implements View.OnClickListener {
 
             Peer peer = new Peer(sender,sourceIPAddress,port_num);
             Message message_txt = new Message(messageTxt, sender);
-            db.persist(peer,message_txt);
-
-            mCursor = db.fetchAllMessages();
-            startManagingCursor(mCursor);
-            mAdapter.swapCursor(mCursor);
+            peerManager.persistAsync(peer);
+            messageManager.persistAsync(peer,message_txt);
+//            db.persist(peer,message_txt);
+//            mCursor = db.fetchAllMessages();
+//            startManagingCursor(mCursor);
+//            mAdapter.swapCursor(mCursor);
 			/*
 			 * End Todo
 			 */

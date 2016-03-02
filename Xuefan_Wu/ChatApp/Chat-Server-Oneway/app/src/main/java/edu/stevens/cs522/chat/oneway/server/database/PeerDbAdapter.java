@@ -74,10 +74,34 @@ public class PeerDbAdapter {
         return;
     }
 
+    public long getPeer_fk(Peer peer){
+        db = dbHelper.getWritableDatabase();
+        ContentValues peerContent;
+        long peer_id = 0;
+        Cursor cursor = db.query(DatabaseHelper.PEER_TABLE,
+                new String[] {PeerContract.ID, PeerContract.NAME,
+                        PeerContract.ADDRESS, PeerContract.PORT},
+                PeerContract.NAME + " = '" + peer.name + "'",
+                null, null, null, null);
+        if(cursor.getCount() != 0){
+            cursor.moveToFirst();
+            Peer exist_peer = new Peer(cursor);
+            peer_id = exist_peer.id;
+        }
+        else{
+            // insert data to peer_table
+            peerContent = new ContentValues();
+            peer.writeToProvider(peerContent,peer);
+            peer_id = db.insertWithOnConflict(DatabaseHelper.PEER_TABLE, null,
+                    peerContent, SQLiteDatabase.CONFLICT_IGNORE);
+        }
+        return peer_id;
+    }
+
     public Cursor fetchAllPeers(){
         db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT "
-                        + DatabaseHelper.PEER_TABLE + "."+ PeerContract.ID + ", "
+                        + DatabaseHelper.PEER_TABLE + "." + PeerContract.ID + ", "
                         + PeerContract.NAME + ", "
                         + PeerContract.ADDRESS + ", "
                         + PeerContract.PORT
@@ -87,6 +111,23 @@ public class PeerDbAdapter {
         return cursor;
 
     }
+
+    public Cursor fetchPeers(long id){
+        db = dbHelper.getWritableDatabase();
+        String query = "SELECT "
+                + DatabaseHelper.PEER_TABLE + "." + PeerContract.ID + ", "
+                + PeerContract.NAME + ", "
+                + PeerContract.ADDRESS + ", "
+                + PeerContract.PORT
+                + " FROM "
+                + DatabaseHelper.PEER_TABLE
+                + " NATURAL JOIN " + DatabaseHelper.MESSAGE_TABLE
+                +" WHERE "+PeerContract.ID+" =?";
+        Cursor cursor = db.rawQuery(query,new String[]{String.valueOf(id)});
+        return cursor;
+    }
+
+
 
 
     public Cursor fetchAllMessages(){

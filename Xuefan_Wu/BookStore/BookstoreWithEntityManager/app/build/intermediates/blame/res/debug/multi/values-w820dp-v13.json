@@ -1,0 +1,146 @@
+[
+    {
+        "outputFile": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 295,
+                        "endColumn": 57,
+                        "endOffset": 348
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 295,
+                        "endColumn": 57,
+                        "endOffset": 348
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithEntityManager\\app\\build\\intermediates\\res\\merged\\debug\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithEntityManager\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 295,
+                        "endColumn": 57,
+                        "endOffset": 348
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 295,
+                        "endColumn": 57,
+                        "endOffset": 348
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment2\\Assignment2-Code\\Assignment2-Code\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment2\\Assignment2-Code\\Assignment2-Code\\BookstoreBasic\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 295,
+                        "endColumn": 57,
+                        "endOffset": 348
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithContentProvider\\app\\build\\intermediates\\res\\merged\\debug\\values-w820dp-v13\\values-w820dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 57,
+                    "endOffset": 108
+                },
+                "from": {
+                    "file": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithContentProvider\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 295,
+                        "endColumn": 57,
+                        "endOffset": 348
+                    }
+                }
+            }
+        ]
+    }
+]

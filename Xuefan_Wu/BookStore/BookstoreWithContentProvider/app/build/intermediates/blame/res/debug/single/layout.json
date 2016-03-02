@@ -8,20 +8,20 @@
         "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithContentProvider\\app\\src\\main\\res\\layout\\cart_row.xml"
     },
     {
-        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithContentProvider\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cart.xml",
-        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithContentProvider\\app\\src\\main\\res\\layout\\cart.xml"
-    },
-    {
-        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\search_results.xml",
-        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\src\\main\\res\\layout\\search_results.xml"
+        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\add_book.xml",
+        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\add_book.xml"
     },
     {
         "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\checkout.xml",
         "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\src\\main\\res\\layout\\checkout.xml"
     },
     {
-        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\add_book.xml",
-        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\add_book.xml"
+        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\search_results.xml",
+        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\src\\main\\res\\layout\\search_results.xml"
+    },
+    {
+        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithContentProvider\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cart.xml",
+        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithContentProvider\\app\\src\\main\\res\\layout\\cart.xml"
     },
     {
         "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment2\\Assignment2-Code\\Assignment2-Code\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cart.xml",
@@ -44,12 +44,12 @@
         "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\cart.xml"
     },
     {
-        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\checkout.xml",
-        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\checkout.xml"
-    },
-    {
         "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\search_results.xml",
         "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\search_results.xml"
+    },
+    {
+        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\checkout.xml",
+        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\checkout.xml"
     },
     {
         "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreWithContentProvider\\app\\build\\intermediates\\res\\merged\\debug\\layout\\book_detail_list.xml",
@@ -60,12 +60,12 @@
         "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\book_detail.xml"
     },
     {
-        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\add_book.xml",
-        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\add_book.xml"
-    },
-    {
         "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment2\\Assignment2-Code\\Assignment2-Code\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\book_detail.xml",
         "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment2\\Assignment2-Code\\Assignment2-Code\\BookstoreBasic\\app\\src\\main\\res\\layout\\book_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\add_book.xml",
+        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\add_book.xml"
     },
     {
         "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment2\\Assignment2-Code\\Assignment2-Code\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\search_results.xml",
@@ -128,12 +128,12 @@
         "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\checkout.xml"
     },
     {
-        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cart.xml",
-        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\src\\main\\res\\layout\\cart.xml"
-    },
-    {
         "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\book_detail.xml",
         "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\src\\main\\res\\layout\\book_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cart.xml",
+        "source": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment3\\Xuefan_Wu\\BookstoreBasic\\app\\src\\main\\res\\layout\\cart.xml"
     },
     {
         "merged": "C:\\Users\\Xuefan\\Desktop\\2016Spring\\CS522\\Assignment4\\Xuefan_Wu\\BookStore\\BookstoreBasic\\app\\build\\intermediates\\res\\merged\\debug\\layout\\search_results.xml",

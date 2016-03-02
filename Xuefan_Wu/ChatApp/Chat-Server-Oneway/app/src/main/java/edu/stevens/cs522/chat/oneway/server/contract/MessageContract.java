@@ -2,21 +2,48 @@ package edu.stevens.cs522.chat.oneway.server.contract;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.net.Uri;
 
 /**
  * Created by Xuefan on 2/14/2016.
  */
 public class MessageContract {
 
-    // Constructor
     public MessageContract() {
     }
 
     public static final String ID = "_id";
     public static final String MESSAGE = "message";
-    public static final String SENDER = "sender";
     public static final String TXT = "txt";
     public static final String PEER_FK = "peer_fk";
+    public static final String AUTHORITY = "edu.stevens.cs522.chat.oneway.server";
+    public static final String PATH ="MessageTable";
+    public static final Uri CONTENT_URI = CONTENT_URI(AUTHORITY,PATH);
+    public static final String CONTENT_PATH = CONTENT_PATH(CONTENT_URI);
+    public static final String CONTENT_PATH_ITEM = CONTENT_PATH(CONTENT_URI("#"));
+
+
+    public static Uri CONTENT_URI(String authority,String path){
+        return new Uri.Builder().scheme("content")
+                .authority(authority)
+                .path(path)
+                .build();
+    }
+
+
+    public static Uri withExtendedPath(Uri uri, String... path){
+        Uri.Builder builder = uri.buildUpon();
+        for(String p:path)
+            builder.appendPath(p);
+        return builder.build();
+    }
+    //override
+    public static Uri CONTENT_URI(String id){
+        return withExtendedPath(CONTENT_URI, id);
+    }
+    public static String CONTENT_PATH(Uri uri){
+        return uri.getPath().substring(1);
+    }
 
 
     // accessor for Id
@@ -32,6 +59,7 @@ public class MessageContract {
     public static String getMessage(Cursor cursor) {
         return cursor.getString(cursor.getColumnIndexOrThrow(MESSAGE));
     }
+
     public static void putMessage(ContentValues values, String message) {
         values.put(MESSAGE, message);
     }
@@ -44,13 +72,13 @@ public class MessageContract {
         values.put(TXT, txt);
     }
 
-    // accessor for Sender
-    public static String getSender(Cursor cursor) {
-        return cursor.getString(cursor.getColumnIndexOrThrow(SENDER));
-    }
-    public static void putSender(ContentValues values, String sender) {
-        values.put(SENDER, sender);
-    }
+//    // accessor for Sender
+//    public static String getSender(Cursor cursor) {
+//        return cursor.getString(cursor.getColumnIndexOrThrow(SENDER));
+//    }
+//    public static void putSender(ContentValues values, String sender) {
+//        values.put(SENDER, sender);
+//    }
 
 
     // accessor for PEER_FK

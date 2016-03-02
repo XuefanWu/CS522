@@ -11,4 +11,4 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/row_message" />
-</LinearLayout><!-- From: file:/C:/Users/Xuefan/Desktop/2016Spring/CS522/Assignment3/Xuefan_Wu/ChatApp/Chat-Server-Oneway/app/src/main/res/layout/message.xml -->
+</LinearLayout><!-- From: file:/C:/Users/Xuefan/Desktop/2016Spring/CS522/Assignment4/Xuefan_Wu/ChatApp/Chat-Server-Oneway/app/src/main/res/layout/message.xml -->
